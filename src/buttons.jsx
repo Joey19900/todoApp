@@ -12,6 +12,8 @@ function TaskForm() {
       text: "Are you sure you want to delete this task?",
       icon: "warning",
       button: ["accept", "cancel"],
+      icon: "waring",
+      button: ["acept", "cancel"],
     });
   };
 
