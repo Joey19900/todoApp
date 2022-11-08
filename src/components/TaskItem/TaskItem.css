@@ -1,7 +1,7 @@
 .task-container {
   width: 500px;
   min-height: 65px; /*no se agrega altura máxima para que el texto se extienda*/
-  background-color: black;
+  /* background-color: black; */
   margin: 5px 0;
   padding: 8px 15px 8px 20px;
   display: flexbox;
@@ -10,6 +10,8 @@
   border-radius: 1px solid rgb(225, 13, 13);
   cursor: pointer;
 }
+
+/*text*/
 
 .task-text {
   width: 100%;
