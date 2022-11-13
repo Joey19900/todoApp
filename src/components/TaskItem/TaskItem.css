@@ -1,13 +1,14 @@
 .task-container {
   width: 500px;
-  min-height: 65px; /*no se agrega altura máxima para que el texto se extienda*/
-  /* background-color: black; */
+  min-height: 65px;
+  background-color: #1b1b32;
   margin: 5px 0;
   padding: 8px 15px 8px 20px;
-  display: flexbox;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 1px solid rgb(225, 13, 13);
+  border-radius: 7px;
+  border: 1px solid white;
   cursor: pointer;
 }
 
@@ -19,7 +20,7 @@
   font-size: 20px;
   display: flex;
   align-items: center;
-  overflow-wrap: anywhere; /*si el texto es muy largo se corta y da salto de renglón */
+  overflow-wrap: anywhere;
 }
 
 /* icon */

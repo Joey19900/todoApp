@@ -6,17 +6,24 @@
 
 html,
 body {
-  color: #000000;
-  background-color: #ffffff;
-  font-family: 'Times New Roman', Times, serif;
+  color: white;
+  background-color: #1b1b1b;
+  font-family: "Times New Roman", Times, serif;
   margin: 40px;
   justify-content: center;
 }
-
-.todoapp {
+h1 {
+  color: white;
+  font-size: 25px;
+  font-family: sans-serif;
+  text-align: center;
+  margin: 20px 0;
+}
+.todoApp {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
 
 /*container*/
@@ -30,22 +37,15 @@ body {
 
 /*image*/
 
-.background {
+.top-landscap {
   width: 1000px;
   height: 300px;
 }
 
-/*estyle task bar*/
-h1 {
-  color: white;
-  font-size: 25px;
-  font-family: sans-serif;
-  text-align: center;
-  margin: 20px 0;
-}
+/*style task bar*/
 
 .task-list-main {
-  width: 1000px;
+  width: 600px;
   min-height: 500px;
   background-color: #d0d0d5;
   padding: 25px;
