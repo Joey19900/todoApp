@@ -1,6 +1,7 @@
 import React from "react";
 import "./TaskForm.css";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 function TaskForm(props) {
   const [input, setInput] = useState("");
@@ -9,12 +10,13 @@ function TaskForm(props) {
     setInput(e.target.value);
   };
 
-  /*tests*/
-  const handleSend = (e) => {
+  const handleSend = () => {
     const newTask = {
-      id: "34545",
-      text: "hi",
+      id: uuidv4(),
+      text: input,
+      finish: false,
     };
+    //Continuar desarrollando mi funcionalidad a partir de esta linea
   };
 
   return (
@@ -26,7 +28,9 @@ function TaskForm(props) {
         name="text"
         onChange={handleChange}
       />
-      <button className="Task-button">Add Task</button>
+      <button onClick={handleSend} className="Task-button">
+        Add Task
+      </button>
     </form>
   );
 }

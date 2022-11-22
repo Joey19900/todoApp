@@ -8,16 +8,29 @@ function TaskList() {
   const [tasks, setTasks] = useState([]);
 
   const AddTask = (task) => {
-    console.log("tarea agregada");
-    console.log(tasks);
-  };
+    if (task.text.trim()) {
+      task.text = task.text.trim();
 
+      const updatedTasks = [task, ...tasks];
+      setTasks(updatedTasks);
+    }
+  };
+  const deleteTask = (id) => {
+    const updatedTasks = tasks.filter((task) => tasks.id !== id);
+    setTasks(updatedTasks);
+  };
   return (
     <>
-      <TaskForm />
-      <div className="task-list-container">Task list</div>
+      <TaskForm onSubmit={AddTask} />
+      <div className="task-list-container"></div>
       {tasks.map((task) => (
-        <TaskItem text={task.text} finish={task.finish} />
+        <TaskItem
+          key={task.id}
+          id={task.id}
+          text={task.text}
+          finish={task.finish}
+          deleteTask={deleteTask}
+        />
       ))}
     </>
   );
