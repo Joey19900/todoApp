@@ -3,7 +3,7 @@ import "./App.css";
 import montain from "./assets/images/montain.jpg";
 import TaskItem from "./components/TaskItem";
 import TaskList from "./components/TaskList";
-
+import TaskForm from "./components/TaskForm";
 function App() {
   return (
     <div className="todoApp">
@@ -14,7 +14,6 @@ function App() {
 
       <div className="task-list-main">
         <TaskList />
-        <TaskItem text="learn react" />
       </div>
     </div>
   );
