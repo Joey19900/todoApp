@@ -2,11 +2,44 @@ import React from "react";
 import TaskForm from "../TaskForm";
 import "./TaskList.css";
 import TaskItem from "../TaskItem";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
+import TaskFilterButtons from "../TaskFilterButtons";
 
 function TaskList() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([
+    // { id: 0, isDone: false, text: "hola" },
+    //{ id: 2, isDone: true, text: "bye" },
+  ]);
+  const [filteredTask, setFilteredTasks] = useState([]);
+  const [filterStatus, setFilterStatus] = useState("All");
+
+  useEffect(() => {
+    handleFilterTask();
+  }, [filterStatus, tasks]);
+
+  const handleFilterTask = () => {
+    //usar tres condiciones con ayuda de la expresión "if". Priorizar el funcionamiento de complete (Revisar nota en handleDeleteTask)
+    if (filterStatus === "Complete") {
+      //HINT ESTE ES UN NUEVO ARRAY. SE DEBE UTILIZAR PARA MOSTRAR ÚNICAMENTE LOS OBJETOS DONE
+
+      const tasksComplete = tasks.filter((task) => task.isDone === true);
+      setFilteredTasks(tasksComplete);
+      return;
+    }
+
+    if (filterStatus === "Active") {
+      const tasksActive = tasks.filter((task) => task.isDone === false);
+      setFilteredTasks(tasksActive);
+      return;
+    }
+
+    if (filterStatus === "All") {
+      const tasksAll = tasks;
+      setFilteredTasks(tasksAll);
+      return;
+    }
+  };
 
   const handleAddTask = (text) => {
     const newTask = {
@@ -16,43 +49,42 @@ function TaskList() {
       isDone: false,
     };
 
-    const updatedTasks = [newTask, ...tasks];
+    const updatedTasks = [...tasks, newTask];
     setTasks(updatedTasks);
-    //Continuar desarrollando mi funcionalidad a partir de esta linea y en este componente
-
-    //HINT: La clave para añadir tasks tiene que ver con agregar newTask a 'tasks' por medio de setTasks
   };
 
   const handleDeleteTask = (id) => {
-    //Me preocupa que no entiendas como esta funcionando handleDeleteTask
-    // Tener claro que debo saber exactamente como funciona .filter > hacer distintos ejemplos y experimentar para entender
-    const updatedTasks = tasks.filter((tasks) => tasks.id !== id);
+    // HINT UTILIZAR COMO EJEMPLO ESTA FUNCIÓN PARA HACER FUNCIONAR EL FILTRO COMPLETE
+    const updatedTasks = tasks.filter((task) => task.id !== id);
+    setTasks(updatedTasks);
+  };
 
-    //Para poder probar esta funcion de handleDeleteTask, primero tiene que funcionar handleAddTask
+  const handleCompleteTask = (id) => {
+    const updatedTasks = tasks.map((task) => ({
+      ...task,
+      isDone: task.id === id ? true : task.isDone,
+    }));
+
     setTasks(updatedTasks);
   };
 
   return (
     <>
-      {/* // Mencionar como esta funcionando aqui  */}
       <TaskForm handleAddTask={handleAddTask} />
-
       <div className="task-list-container" />
-
-      {/* //Me preocupa que no entiendas como esta funcionando esta parte */}
-      {/* //Una vez que funcione handleDeleteTask checar que esto sigue funcionando correctamente */}
-      {tasks.map((task) => (
+      {filteredTask.map((task) => (
         <TaskItem
-          // Para que sirve key?
           key={task.id}
           id={task.id}
           text={task.text}
           isDone={task.isDone}
           handleDeleteTask={handleDeleteTask}
+          handleCompleteTask={handleCompleteTask}
         />
       ))}
+      <div>HELLO filter buttons</div>
+      <TaskFilterButtons setFilterStatus={setFilterStatus} tasks={tasks} />
     </>
   );
 }
-
 export default TaskList;
