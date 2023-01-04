@@ -7,10 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 import TaskFilterButtons from "../TaskFilterButtons";
 
 function TaskList() {
-  const [tasks, setTasks] = useState([
-    // { id: 0, isDone: false, text: "hola" },
-    //{ id: 2, isDone: true, text: "bye" },
-  ]);
+  const [tasks, setTasks] = useState([]);
   const [filteredTask, setFilteredTasks] = useState([]);
   const [filterStatus, setFilterStatus] = useState("All");
 
@@ -19,10 +16,7 @@ function TaskList() {
   }, [filterStatus, tasks]);
 
   const handleFilterTask = () => {
-    //usar tres condiciones con ayuda de la expresión "if". Priorizar el funcionamiento de complete (Revisar nota en handleDeleteTask)
     if (filterStatus === "Complete") {
-      //HINT ESTE ES UN NUEVO ARRAY. SE DEBE UTILIZAR PARA MOSTRAR ÚNICAMENTE LOS OBJETOS DONE
-
       const tasksComplete = tasks.filter((task) => task.isDone === true);
       setFilteredTasks(tasksComplete);
       return;
@@ -40,7 +34,6 @@ function TaskList() {
       return;
     }
   };
-
   const handleAddTask = (text) => {
     const newTask = {
       id: uuidv4(),
@@ -54,15 +47,19 @@ function TaskList() {
   };
 
   const handleDeleteTask = (id) => {
-    // HINT UTILIZAR COMO EJEMPLO ESTA FUNCIÓN PARA HACER FUNCIONAR EL FILTRO COMPLETE
     const updatedTasks = tasks.filter((task) => task.id !== id);
+    setTasks(updatedTasks);
+  };
+
+  const handleClearTask = () => {
+    const updatedTasks = tasks.filter((task) => task.isDone === false);
     setTasks(updatedTasks);
   };
 
   const handleCompleteTask = (id) => {
     const updatedTasks = tasks.map((task) => ({
       ...task,
-      isDone: task.id === id ? true : task.isDone,
+      isDone: task.id === id ? true : task.isDone, // isDone respeta el valor booleano en las demás tareas y solo cambiará la tarea que reciba el click
     }));
 
     setTasks(updatedTasks);
@@ -80,10 +77,15 @@ function TaskList() {
           isDone={task.isDone}
           handleDeleteTask={handleDeleteTask}
           handleCompleteTask={handleCompleteTask}
+          handleClearTask={handleClearTask}
         />
       ))}
       <div>HELLO filter buttons</div>
-      <TaskFilterButtons setFilterStatus={setFilterStatus} tasks={tasks} />
+      <TaskFilterButtons
+        setFilterStatus={setFilterStatus}
+        handleClearTask={handleClearTask}
+        tasks={tasks}
+      />
     </>
   );
 }

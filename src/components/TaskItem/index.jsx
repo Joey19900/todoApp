@@ -3,7 +3,6 @@ import "./TaskItem.css";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { BiCheckbox } from "react-icons/bi";
 
-//Me preocupa que no entiendas como esta funcionando TaskItem
 function TaskItem({
   id,
   text,

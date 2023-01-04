@@ -8,9 +8,15 @@
 //Agregar en este componente el contador de tareas y luego estilizarlo para ajsutarlo a la izquierda.
 //lA información llega a este componente en forma de props y se puede utilziar para el conteo de tareas
 
-import React from "react";
+// implementar un boton que permita limpiar las tareas marcadas como completadas
 
-function TaskFilterButtons({ setFilterStatus, tasks }) {
+import React from "react";
+function TaskFilterButtons({
+  setFilterStatus,
+  tasks,
+  handleClearTask,
+  isDone,
+}) {
   const taskCounter = tasks.length;
 
   return (
@@ -18,6 +24,9 @@ function TaskFilterButtons({ setFilterStatus, tasks }) {
       <button onClick={() => setFilterStatus("All")}>All</button>
       <button onClick={() => setFilterStatus("Complete")}>Complete</button>
       <button onClick={() => setFilterStatus("Active")}>Active</button>
+      <button onClick={() => handleClearTask("Clear Complete")}>
+        Clear Complete
+      </button>
       {taskCounter}
     </div>
   );
