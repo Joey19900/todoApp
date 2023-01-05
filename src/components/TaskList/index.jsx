@@ -34,6 +34,7 @@ function TaskList() {
       return;
     }
   };
+
   const handleAddTask = (text) => {
     const newTask = {
       id: uuidv4(),

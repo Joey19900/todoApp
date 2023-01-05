@@ -11,12 +11,7 @@
 // implementar un boton que permita limpiar las tareas marcadas como completadas
 
 import React from "react";
-function TaskFilterButtons({
-  setFilterStatus,
-  tasks,
-  handleClearTask,
-  isDone,
-}) {
+function TaskFilterButtons({ setFilterStatus, tasks, handleClearTask }) {
   const taskCounter = tasks.length;
 
   return (

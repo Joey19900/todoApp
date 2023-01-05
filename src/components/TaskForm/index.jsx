@@ -10,6 +10,8 @@ function TaskForm({ handleAddTask }) {
     setInput(e.target.value);
   };
 
+  const counterLetter = input.length;
+
   const handleSend = (e) => {
     e.preventDefault();
 
@@ -18,6 +20,7 @@ function TaskForm({ handleAddTask }) {
 
   return (
     <form onSubmit={handleSend} className="taskForm">
+      <p>{counterLetter} Characters used</p>
       <input
         className="task-input"
         type="text"
