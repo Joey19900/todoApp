@@ -20,7 +20,9 @@ function TaskForm({ handleAddTask }) {
 
   return (
     <form onSubmit={handleSend} className="taskForm">
-      <p>{counterLetter} Characters used</p>
+      <p style={{ color: counterLetter === 30 ? "red" : "black" }}>
+        {counterLetter}
+      </p>
       <input
         className="task-input"
         type="text"
