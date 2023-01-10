@@ -70,6 +70,7 @@ function TaskList() {
     <>
       <TaskForm handleAddTask={handleAddTask} />
       <div className="task-list-container" />
+
       {filteredTask.map((task) => (
         <TaskItem
           key={task.id}
@@ -82,6 +83,7 @@ function TaskList() {
         />
       ))}
       <div>HELLO filter buttons</div>
+
       <TaskFilterButtons
         setFilterStatus={setFilterStatus}
         handleClearTask={handleClearTask}
