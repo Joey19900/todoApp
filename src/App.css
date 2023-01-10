@@ -33,11 +33,12 @@ h1 {
   top: 30%;
   width: 30%;
   margin: 20x;
-  display: flex;
+  display: initial;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-style: 1px solid, black;
+  overflow: scroll;
 }
 
 /*image*/
@@ -51,11 +52,11 @@ h1 {
 /*agregar boredes negros a este contenedor*/
 .task-list-main {
   top: 40%;
+  height: 600;
   width: 600px;
   max-width: 600px;
-  min-height: 300px;
+  max-height: 300px;
   background-color: gray;
   border-radius: 26px;
   border-style: 10px solid black;
-  overflow: scroll;
 }
