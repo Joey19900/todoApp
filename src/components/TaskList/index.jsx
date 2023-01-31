@@ -60,7 +60,7 @@ function TaskList() {
   const handleCompleteTask = (id) => {
     const updatedTasks = tasks.map((task) => ({
       ...task,
-      isDone: task.id === id ? true : task.isDone, // isDone respeta el valor booleano en las demás tareas y solo cambiará la tarea que reciba el click
+      isDone: task.id === id ? !task.isDone : task.isDone, // isDone respeta el valor booleano en las demás tareas y solo cambiará la tarea que reciba el click
     }));
 
     setTasks(updatedTasks);
