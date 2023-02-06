@@ -43,7 +43,7 @@ function TaskList() {
       isDone: false,
     };
 
-    const updatedTasks = [...tasks, newTask];
+    const updatedTasks = [newTask, ...tasks];
     setTasks(updatedTasks);
   };
 
