@@ -48,13 +48,20 @@ function TaskList() {
   };
 
   const handleDeleteTask = (id) => {
-    const updatedTasks = tasks.filter((task) => task.id !== id);
-    setTasks(updatedTasks);
+    const result = window.confirm("Are you sure?");
+
+    if (result == true) {
+      const updatedTasks = tasks.filter((task) => task.id !== id);
+      setTasks(updatedTasks);
+    }
   };
 
   const handleClearTask = () => {
-    const updatedTasks = tasks.filter((task) => task.isDone === false);
-    setTasks(updatedTasks);
+    const result = window.confirm("Are you sure?");
+    if (result == true) {
+      const updatedTasks = tasks.filter((task) => task.isDone === false);
+      setTasks(updatedTasks);
+    }
   };
 
   const handleCompleteTask = (id) => {
