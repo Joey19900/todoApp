@@ -2,7 +2,6 @@ import React from "react";
 import "./TaskItem.css";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { BiCheckbox } from "react-icons/bi";
-
 function TaskItem({
   id,
   text,
@@ -17,7 +16,7 @@ function TaskItem({
         className="task-container-icons"
         onClick={() => handleCompleteTask(id)}
       >
-        <BiCheckbox className="task-icon" />
+        <input type="checkbox" className="task-icon" />
       </div>
 
       <div className="task-text" onClick={() => handleAddTask(id)}>

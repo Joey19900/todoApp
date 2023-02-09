@@ -16,7 +16,7 @@ h1 {
   color: white;
   font-size: 25px;
   font-family: sans-serif;
-  top: 40%;
+  top: 20%;
   left: 50%;
   display: grid;
   position: absolute;
@@ -30,7 +30,7 @@ h1 {
 
 /*container*/
 .task-list-main {
-  top: 30%;
+  top: 20%;
   width: 30%;
   margin: 20x;
   display: initial;
@@ -51,7 +51,7 @@ h1 {
 /*style task bar*/
 /*agregar boredes negros a este contenedor*/
 .task-list-main {
-  top: 40%;
+  top: 20%;
   height: 600;
   width: 600px;
   max-width: 600px;
