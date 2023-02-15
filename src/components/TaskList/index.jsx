@@ -10,6 +10,7 @@ function TaskList() {
   const [tasks, setTasks] = useState([]);
   const [filteredTask, setFilteredTasks] = useState([]);
   const [filterStatus, setFilterStatus] = useState("All");
+  const [taskCounter, setTaskCounter] = useState();
 
   useEffect(() => {
     handleFilterTask();
@@ -43,7 +44,7 @@ function TaskList() {
       isDone: false,
     };
 
-    const updatedTasks = [...tasks, newTask];
+    const updatedTasks = [newTask, ...tasks];
     setTasks(updatedTasks);
   };
 
@@ -67,7 +68,8 @@ function TaskList() {
   const handleCompleteTask = (id) => {
     const updatedTasks = tasks.map((task) => ({
       ...task,
-      isDone: task.id === id ? !task.isDone : task.isDone, // isDone respeta el valor booleano en las demás tareas y solo cambiará la tarea que reciba el click
+      isDone: task.id === id ? !task.isDone : task.isDone,
+      // isDone respeta el valor booleano en las demás tareas y solo cambiará la tarea que reciba el click
     }));
 
     setTasks(updatedTasks);
@@ -89,12 +91,12 @@ function TaskList() {
           handleClearTask={handleClearTask}
         />
       ))}
-      <div>HELLO filter buttons</div>
 
+      <></>
       <TaskFilterButtons
         setFilterStatus={setFilterStatus}
         handleClearTask={handleClearTask}
-        tasks={tasks}
+        tasks={filteredTask}
       />
     </>
   );
