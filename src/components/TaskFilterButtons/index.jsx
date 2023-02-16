@@ -6,7 +6,7 @@ function TaskFilterButtons({ setFilterStatus, tasks, handleClearTask }) {
 
   return (
     <div className="buttonsFilter">
-      <p className="text">Item Left {itemLeft}</p>
+      <p className="Itemleft">Item Left {itemLeft}</p>
       <button className="button" onClick={() => setFilterStatus("All")}>
         <p className="text">All</p>
       </button>

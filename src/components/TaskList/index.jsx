@@ -10,7 +10,6 @@ function TaskList() {
   const [tasks, setTasks] = useState([]);
   const [filteredTask, setFilteredTasks] = useState([]);
   const [filterStatus, setFilterStatus] = useState("All");
-  const [taskCounter, setTaskCounter] = useState();
 
   useEffect(() => {
     handleFilterTask();
@@ -77,27 +76,27 @@ function TaskList() {
 
   return (
     <>
-      <TaskForm handleAddTask={handleAddTask} />
-      <div className="task-list-container" />
-
-      {filteredTask.map((task) => (
-        <TaskItem
-          key={task.id}
-          id={task.id}
-          text={task.text}
-          isDone={task.isDone}
-          handleDeleteTask={handleDeleteTask}
-          handleCompleteTask={handleCompleteTask}
+      <div className="task-list-main">
+        <TaskForm handleAddTask={handleAddTask} />
+        {filteredTask.map((task) => (
+          <TaskItem
+            key={task.id}
+            id={task.id}
+            text={task.text}
+            isDone={task.isDone}
+            handleDeleteTask={handleDeleteTask}
+            handleCompleteTask={handleCompleteTask}
+            handleClearTask={handleClearTask}
+          />
+        ))}
+      </div>
+      <div className="classButonFilter">
+        <TaskFilterButtons
+          setFilterStatus={setFilterStatus}
           handleClearTask={handleClearTask}
+          tasks={filteredTask}
         />
-      ))}
-
-      <></>
-      <TaskFilterButtons
-        setFilterStatus={setFilterStatus}
-        handleClearTask={handleClearTask}
-        tasks={filteredTask}
-      />
+      </div>
     </>
   );
 }
