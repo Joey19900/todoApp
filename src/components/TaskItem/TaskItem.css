@@ -34,7 +34,4 @@
 
 /*task finished*/
 
-.task-container.finish {
-  text-decoration: line-through;
-  background-color: blueviolet;
-}
+

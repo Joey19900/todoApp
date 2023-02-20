@@ -77,25 +77,28 @@ function TaskList() {
   return (
     <>
       <div className="task-list-main">
+        <header>TODO</header>
         <TaskForm handleAddTask={handleAddTask} />
-        {filteredTask.map((task) => (
-          <TaskItem
-            key={task.id}
-            id={task.id}
-            text={task.text}
-            isDone={task.isDone}
-            handleDeleteTask={handleDeleteTask}
-            handleCompleteTask={handleCompleteTask}
+        <div className="task-list-items">
+          {filteredTask.map((task) => (
+            <TaskItem
+              key={task.id}
+              id={task.id}
+              text={task.text}
+              isDone={task.isDone}
+              handleDeleteTask={handleDeleteTask}
+              handleCompleteTask={handleCompleteTask}
+              handleClearTask={handleClearTask}
+            />
+          ))}
+        </div>
+        <div className="classButonFilter">
+          <TaskFilterButtons
+            setFilterStatus={setFilterStatus}
             handleClearTask={handleClearTask}
+            tasks={filteredTask}
           />
-        ))}
-      </div>
-      <div className="classButonFilter">
-        <TaskFilterButtons
-          setFilterStatus={setFilterStatus}
-          handleClearTask={handleClearTask}
-          tasks={filteredTask}
-        />
+        </div>
       </div>
     </>
   );
