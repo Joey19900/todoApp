@@ -26,6 +26,7 @@
 
 .button:hover {
   color: darkmagenta;
+  cursor: pointer;
 }
 .Item-Left {
   color: black;
