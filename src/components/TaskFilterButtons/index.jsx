@@ -1,30 +1,30 @@
 import React from "react";
 import { useState } from "react";
 import "./TaskFilterButtons.css";
+import PropTypes from "prop-types";
 
+const statusFilter = {
+  all: "All",
+  complete: "Complete",
+  active: "Active",
+};
 function TaskFilterButtons({ setFilterStatus, tasks, handleClearTask }) {
   const itemLeft = tasks.length;
 
-  const [currFilter, setCurrFilter] = useState("");
+  const [currentFilter, setCurrentFilter] = useState("All");
 
   const changeFilter = (filter) => {
-    setCurrFilter(filter);
+    setCurrentFilter(filter);
     setFilterStatus(filter);
-  };
-
-  const statusFilter = {
-    all: "All",
-    complete: "Complete",
-    active: "Active",
   };
 
   return (
     <div className="buttonsFilter">
-      <p className="Itemleft">Item Left {itemLeft}</p>
+      <p className="Item-Left">Item Left {itemLeft}</p>
       <div className="buttonFilterStatus">
         <button
           className={`button ${
-            currFilter === statusFilter.all ? "active" : ""
+            currentFilter === statusFilter.all ? "active" : ""
           }`}
           onClick={() => changeFilter(statusFilter.all)}
         >
@@ -32,7 +32,7 @@ function TaskFilterButtons({ setFilterStatus, tasks, handleClearTask }) {
         </button>
         <button
           className={`button ${
-            currFilter === statusFilter.complete ? "active" : ""
+            currentFilter === statusFilter.complete ? "active" : ""
           }`}
           onClick={() => changeFilter(statusFilter.complete)}
         >
@@ -40,7 +40,7 @@ function TaskFilterButtons({ setFilterStatus, tasks, handleClearTask }) {
         </button>
         <button
           className={`button ${
-            currFilter === statusFilter.active ? "active" : ""
+            currentFilter === statusFilter.active ? "active" : ""
           }`}
           onClick={() => changeFilter(statusFilter.active)}
         >
@@ -48,13 +48,24 @@ function TaskFilterButtons({ setFilterStatus, tasks, handleClearTask }) {
         </button>
       </div>
       <button
-        className="button"
+        className="button Item-Right"
         onClick={() => handleClearTask("Clear Complete")}
       >
-        <p className="text">Clear Complete</p>
+        Clear Complete
       </button>
     </div>
   );
 }
 
+TaskFilterButtons.propTypes = {
+  setFilterStatus: PropTypes.func.isRequired,
+  handleClearTask: PropTypes.func.isRequired,
+  tasks: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      text: PropTypes.string,
+      isDone: PropTypes.bool,
+    })
+  ),
+};
 export default TaskFilterButtons;

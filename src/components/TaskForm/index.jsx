@@ -1,7 +1,7 @@
 import React from "react";
 import "./TaskForm.css";
 import { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
+import PropTypes from "prop-types";
 
 function TaskForm({ handleAddTask }) {
   const [input, setInput] = useState("");
@@ -16,14 +16,13 @@ function TaskForm({ handleAddTask }) {
     e.preventDefault();
 
     handleAddTask(input);
+    setInput("");
   };
 
   return (
     <form onSubmit={handleSend} className="taskForm">
-      <p style={{ color: counterLetter === 30 ? "red" : "black" }}>
-        {counterLetter}
-      </p>
       <input
+        value={input}
         className="task-input"
         type="text"
         placeholder="Add new task "
@@ -33,9 +32,21 @@ function TaskForm({ handleAddTask }) {
         required
         onChange={handleChange}
       />
-      <button className="Task-button">Create new todo</button>
+      <p style={{ color: counterLetter === 30 ? "red" : "black" }}>
+        {counterLetter}
+      </p>
+      <button
+        disabled={counterLetter < 3 ? true : false}
+        className="Task-button"
+      >
+        Create new todo
+      </button>
     </form>
   );
 }
+
+TaskForm.propTypes = {
+  handleAddTask: PropTypes.func.isRequired,
+};
 
 export default TaskForm;
