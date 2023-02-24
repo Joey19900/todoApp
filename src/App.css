@@ -3,11 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+/* Resetear los paddings que los navegadores tiene por defecto y el border box...() */
 html {
   font-size: 62.5%;
 }
-
+/* Ajustar las medidas relativas como el rem (root element) 62.5% = 10  y de manera uniforme en el proyecto*/
 html,
 body {
   color: white;
@@ -35,15 +35,16 @@ body {
 .top-landscape {
   width: 100%;
   display: block;
-  height: auto;
+  height: 33vh;
   min-height: 200px;
   object-fit: cover;
 }
 
 /* media@*/
-
+/* 
 @media screen and (min-width: 768px) {
   .top-landscape {
     min-height: 300px;
   }
 }
+*/

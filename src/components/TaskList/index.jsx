@@ -50,7 +50,7 @@ function TaskList() {
   const handleDeleteTask = (id) => {
     const result = window.confirm("Are you sure?");
 
-    if (result == true) {
+    if (result === true) {
       const updatedTasks = tasks.filter((task) => task.id !== id);
       setTasks(updatedTasks);
     }
@@ -58,7 +58,7 @@ function TaskList() {
 
   const handleClearTask = () => {
     const result = window.confirm("Are you sure?");
-    if (result == true) {
+    if (result === true) {
       const updatedTasks = tasks.filter((task) => task.isDone === false);
       setTasks(updatedTasks);
     }
@@ -88,7 +88,6 @@ function TaskList() {
               isDone={task.isDone}
               handleDeleteTask={handleDeleteTask}
               handleCompleteTask={handleCompleteTask}
-              handleClearTask={handleClearTask}
             />
           ))}
         </div>
@@ -103,4 +102,5 @@ function TaskList() {
     </>
   );
 }
+
 export default TaskList;

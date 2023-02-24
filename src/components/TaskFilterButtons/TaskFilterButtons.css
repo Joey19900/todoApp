@@ -1,14 +1,15 @@
 .buttonsFilter {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   padding: 2rem;
   background-color: white;
+  gap: 1rem;
 }
 
 .buttonFilterStatus {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
+  flex-direction: column;
 }
 
 .button {
@@ -16,15 +17,23 @@
   border: none;
   color: black;
   font-size: 1.2rem;
+  height: fit-content;
 }
 .button.active {
   color: darkmagenta;
+  font-weight: bold;
 }
 
 .button:hover {
   color: darkmagenta;
 }
-.Itemleft {
+.Item-Left {
   color: black;
   font-size: 1.2rem;
+}
+
+@media screen and (min-width: 400px) {
+  .buttonFilterStatus {
+    flex-direction: row;
+  }
 }
