@@ -28,7 +28,7 @@ function TaskForm({ handleAddTask }) {
         type="text"
         placeholder="Add new task "
         name="text"
-        minLength="5"
+        minLength="3"
         maxLength="30"
         required
         onChange={handleChange}

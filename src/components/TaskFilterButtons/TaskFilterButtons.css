@@ -1,17 +1,30 @@
 .buttonsFilter {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: white;
 }
+
+.buttonFilterStatus {
+  display: flex;
+  gap: 1.5rem;
+}
+
 .button {
   background: transparent;
   border: none;
+  color: black;
+  font-size: 1.2rem;
+}
+.button.active {
+  color: darkmagenta;
 }
 
-.text {
-  color: black;
-  font-size: 25px;
-}
-.text:hover {
+.button:hover {
   color: darkmagenta;
+}
+.Itemleft {
+  color: black;
+  font-size: 1.2rem;
 }

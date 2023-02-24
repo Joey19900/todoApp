@@ -1,32 +1,50 @@
 .taskForm {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  height: auto;
-  display: flex;
+  justify-content: space-between;
+  height: 6rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  min-height: 6rem;
 }
 
 .task-input {
-  width: 350px;
   font-size: 18px;
-  background-color: white;
   padding: 14px 32px 14px 16px;
-  border-radius: 4px 0 0 4px;
-  border: 2px solid #00471b;
-  outline: none;
+  border: none;
   justify-content: initial;
+  width: 100%;
+  outline: none;
+  height: 100%;
+}
+
+.task-input:-webkit-autofill,
+.task-input:-webkit-autofill:hover,
+.task-input:-webkit-autofill:focus,
+.task-input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset;
+  -webkit-text-fill-color: black;
+  box-shadow: 0 0 0 30px white inset;
 }
 
 .Task-button {
   padding: 16px;
-  font-size: 18px;
+  font-size: 14px;
   font-family: sans-serif;
   border: none;
-  border-radius: 0 4px 4px 0;
   cursor: pointer;
   outline: none;
-  background-color: #00471b;
+  background-color: darkviolet;
   color: #fff;
   text-transform: capitalize;
+  min-width: 7rem;
+  max-width: 10rem;
+  width: 20%;
+  height: 100%;
+}
+
+.taskForm > p {
+  font-size: 1.6rem;
+  padding-left: 2rem;
 }

@@ -1,14 +1,13 @@
 .task-container {
-  width: 500px;
+  width: 100%;
   min-height: 65px;
   background-color: white;
-  margin: 5px 0;
+  margin: 0px 0;
   padding: 8px 15px 8px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 7px;
-  border-style: solid;
+  border-style: outset;
   cursor: pointer;
   color: black;
 }
@@ -22,6 +21,7 @@
   display: flex;
   align-items: center;
   overflow-wrap: anywhere;
+  justify-self: center;
 }
 
 /* icon */
@@ -34,6 +34,4 @@
 
 /*task finished*/
 
-.task-container.finish {
-  text-decoration: line-through;
-}
+

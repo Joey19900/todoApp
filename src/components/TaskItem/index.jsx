@@ -11,7 +11,7 @@ function TaskItem({
   handleCompleteTask,
 }) {
   return (
-    <div className={isDone ? "task-container finish" : "task-container "}>
+    <div className={isDone ? "task-container finish" : "task-container"}>
       <div
         className="task-container-icons"
         onClick={() => handleCompleteTask(id)}
